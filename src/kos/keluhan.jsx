@@ -61,8 +61,9 @@ const Keluhan = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="page-heading">
         <div>
+          <p className="eyebrow">SMARTKOS WORKSPACE</p>
           <h2 className="text-2xl font-bold text-slate-800">
             Keluhan Penghuni
           </h2>
@@ -72,7 +73,7 @@ const Keluhan = () => {
         </div>
         <button
           onClick={handleBukaModal}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm"
+          className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm"
         >
           <Plus size={17} aria-hidden="true" /> Buat Laporan
         </button>

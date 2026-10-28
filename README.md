@@ -1,16 +1,33 @@
-# React + Vite
+# SmartKos Admin — versi tanpa backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Tampilan admin mengikuti SmartKos Business: sidebar putih, aksen hijau, latar sage, kartu statistik, tabel dan form yang konsisten. Ikon memakai Lucide SVG. Tombol **Logout** memiliki label teks pada desktop maupun layar kecil.
 
-Currently, two official plugins are available:
+## Menjalankan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Gunakan Node.js 22.12+ atau versi lebih baru yang didukung Vite.
 
-## React Compiler
+```bash
+npm ci
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Buka alamat yang ditampilkan Vite. Akun awal untuk penyimpanan browser yang masih baru:
 
-## Expanding the Oxlint configuration
+- Username: `Admin`
+- Password: `Admin`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Fitur
+
+Ringkasan operasional, tambah/edit kamar, penghuni dan checkout, transaksi pemasukan/pengeluaran, serta laporan keluhan. Saldo bersih hijau, pemasukan biru, pengeluaran merah.
+
+Data menggunakan localStorage (`smartkos_data`, `users`, `currentUser`) di browser yang dipakai. Versi ini tidak memerlukan MySQL, Express, atau file .env. Akun dan data lokal bukan sistem akses server untuk pelanggan nyata. Proyek backend SmartKos Business merupakan proyek terpisah.
+
+## Pemeriksaan dan build
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+Folder dist disertakan untuk menyesuaikan struktur repositori sebelumnya. Login dan data operasional tetap memakai implementasi lokal yang sudah ada; perubahan desain tidak menghapus data browser.
