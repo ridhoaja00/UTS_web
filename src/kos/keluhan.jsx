@@ -1,4 +1,3 @@
-import { Plus, X, Trash2, RefreshCw } from "lucide-react";
 import React, { useState } from "react";
 import { useKos } from "../context/kosContext";
 
@@ -60,8 +59,8 @@ const Keluhan = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl font-bold text-slate-800">
             Keluhan Penghuni
@@ -74,7 +73,7 @@ const Keluhan = () => {
           onClick={handleBukaModal}
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm"
         >
-          <Plus size={17} aria-hidden="true" /> Buat Laporan
+          + Buat Laporan
         </button>
       </div>
 
@@ -109,13 +108,13 @@ const Keluhan = () => {
                   onClick={() => ubahStatusKeluhan(k.id)}
                   className="w-full mt-2 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-lg text-sm font-medium transition-colors"
                 >
-                  <RefreshCw size={14} aria-hidden="true" /> Ubah Status
+                  Ubah Status
                 </button>
                 <button
                   onClick={() => handleHapus(k.id)}
                   className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 py-2 rounded-lg text-sm font-medium border border-red-200 transition-colors"
                 >
-                  <Trash2 size={14} aria-hidden="true" /> Hapus
+                  Hapus
                 </button>
               </div>
             );
@@ -140,7 +139,7 @@ const Keluhan = () => {
                 aria-label="Tutup form"
                 className="text-xl font-bold text-slate-400 hover:text-slate-600"
               >
-                <X size={20} aria-hidden="true" />
+                &times;
               </button>
             </div>
 
