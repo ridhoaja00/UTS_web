@@ -56,21 +56,21 @@ const Keuangan = () => {
 
       {/* Kartu Ringkasan */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-emerald-50 border border-emerald-100 p-5 rounded-xl">
-          <p className="text-sm font-medium text-emerald-700 mb-1">Total Pemasukan</p>
-          <p className="text-2xl font-bold text-emerald-700">
+        <div className="bg-blue-50 border border-blue-100 p-5 rounded-xl">
+          <p className="text-sm font-medium text-blue-700 mb-1">Total Pemasukan</p>
+          <p className="text-2xl font-bold text-blue-700">
             Rp {totalPemasukan.toLocaleString('id-ID')}
           </p>
         </div>
-        <div className="bg-rose-50 border border-rose-100 p-5 rounded-xl">
-          <p className="text-sm font-medium text-rose-700 mb-1">Total Pengeluaran</p>
-          <p className="text-2xl font-bold text-rose-700">
+        <div className="bg-red-50 border border-red-100 p-5 rounded-xl">
+          <p className="text-sm font-medium text-red-700 mb-1">Total Pengeluaran</p>
+          <p className="text-2xl font-bold text-red-700">
             Rp {totalPengeluaran.toLocaleString('id-ID')}
           </p>
         </div>
-        <div className="bg-blue-50 border border-blue-100 p-5 rounded-xl">
-          <p className="text-sm font-medium text-blue-700 mb-1">Saldo Bersih</p>
-          <p className="text-2xl font-bold text-blue-700">
+        <div className="bg-emerald-50 border border-emerald-100 p-5 rounded-xl">
+          <p className="text-sm font-medium text-emerald-700 mb-1">Saldo Bersih</p>
+          <p className="text-2xl font-bold text-emerald-700">
             Rp {saldoBersih.toLocaleString('id-ID')}
           </p>
         </div>
@@ -99,13 +99,13 @@ const Keuangan = () => {
                     <td className="px-6 py-4 text-slate-800 font-medium">{t.keterangan}</td>
                     <td className="px-6 py-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        t.tipe === 'Pemasukan' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'
+                        t.tipe === 'Pemasukan' ? 'bg-blue-100 text-blue-700' : 'bg-red-100 text-red-700'
                       }`}>
                         {t.tipe}
                       </span>
                     </td>
                     <td className={`px-6 py-4 text-right font-bold ${
-                      t.tipe === 'Pemasukan' ? 'text-emerald-600' : 'text-rose-600'
+                      t.tipe === 'Pemasukan' ? 'text-blue-600' : 'text-red-600'
                     }`}>
                       {t.tipe === 'Pemasukan' ? '+' : '-'} Rp {t.jumlah.toLocaleString('id-ID')}
                     </td>
