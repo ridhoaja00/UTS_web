@@ -75,8 +75,9 @@ const DataPenghuni = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="page-heading">
         <div>
+          <p className="eyebrow">SMARTKOS WORKSPACE</p>
           <h2 className="text-xl font-bold text-slate-800">Data Penghuni</h2>
           <p className="text-sm text-slate-500">
             Kelola data penghuni dan alokasi kamar kos.
@@ -171,7 +172,8 @@ const DataPenghuni = () => {
                 Tambah Penghuni Baru
               </h3>
               <button
-                onClick={() => setShowModal(false)} aria-label="Tutup form"
+                onClick={() => setShowModal(false)}
+                aria-label="Tutup form"
                 className="text-slate-400 hover:text-slate-600 text-xl font-bold"
               >
                 <X size={20} aria-hidden="true" />
@@ -245,7 +247,8 @@ const DataPenghuni = () => {
               <div className="pt-4 flex gap-3">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)} aria-label="Tutup form"
+                  onClick={() => setShowModal(false)}
+                  aria-label="Tutup form"
                   className="flex-1 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition-colors"
                 >
                   Batal
