@@ -1,4 +1,5 @@
 import React from 'react';
+import { CalendarDays, ChevronRight } from 'lucide-react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { KosProvider, useKos } from './context/kosContext';
 
@@ -19,9 +20,9 @@ const ProtectedLayout = () => {
     return <Navigate to="/login" replace />;
   }
   return (
-    <div className="flex min-h-screen flex-row bg-slate-50 font-sans text-slate-800">
+    <div className="app-shell">
       <Sidebar />
-      <main className="min-w-0 flex-1 overflow-y-auto p-5 sm:p-8">
+      <div className="app-workspace"><header className="topbar"><span>Workspace <ChevronRight size={14} /><strong>Manajemen Kos</strong></span><span className="topbar-date"><CalendarDays size={16} />{new Intl.DateTimeFormat('id-ID', {day: 'numeric', month: 'long', year: 'numeric'}).format(new Date())}</span></header><main className="app-main">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/penghuni" element={<DataPenghuni />} />
@@ -30,7 +31,7 @@ const ProtectedLayout = () => {
           <Route path="/kamar" element={<ManajemenKamar />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
-      </main>
+      </main></div>
     </div>
   );
 };

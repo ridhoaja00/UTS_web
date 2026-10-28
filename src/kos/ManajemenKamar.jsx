@@ -1,3 +1,4 @@
+import { Plus, X, Pencil, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { useKos } from "../context/kosContext"
 
@@ -7,7 +8,7 @@ const ManajemenKamar = () => {
   const [modalMode, setModalMode] = useState('tambah')
   const [editId, setEditId] = useState(null);
 
- 
+
   const [formData, setFormData] = useState({
     nomor: '',
     tipe: 'Reguler',
@@ -26,7 +27,7 @@ const ManajemenKamar = () => {
     setFormData({
       nomor: dataKamar.nomor,
       tipe: dataKamar.tipe,
-      harga: dataKamar.harga 
+      harga: dataKamar.harga
     })
     setShowModal(true);
   }
@@ -57,7 +58,7 @@ const ManajemenKamar = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-800">Manajemen Kamar</h2>
           <p className="text-sm text-slate-500">Kelola daftar kamar kos Anda</p>
@@ -66,7 +67,7 @@ const ManajemenKamar = () => {
           onClick={handleBukaModalTambah}
           className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
         >
-          + Tambah Kamar
+          <Plus size={17} aria-hidden="true" /> Tambah Kamar
         </button>
       </div>
 
@@ -104,13 +105,13 @@ const ManajemenKamar = () => {
                         onClick={() => handleBukaModalEdit(k)}
                         className="text-sky-600 hover:text-sky-800 font-medium px-2 py-1 bg-sky-50 hover:bg-sky-100 rounded transition-colors"
                       >
-                        Edit
+                        <Pencil size={14} aria-hidden="true" /> Edit
                       </button>
                       <button
                         onClick={() => handleHapus(k.id, k.nomor, k.status)}
                         className="text-rose-600 hover:text-rose-800 font-medium px-2 py-1 bg-rose-50 hover:bg-rose-100 rounded transition-colors"
                       >
-                        Hapus
+                        <Trash2 size={14} aria-hidden="true" /> Hapus
                       </button>
                     </td>
                   </tr>
@@ -134,9 +135,9 @@ const ManajemenKamar = () => {
               <h3 className="font-bold text-lg text-slate-800">
                 {modalMode === 'tambah' ? 'Tambah Kamar Baru' : 'Edit Data Kamar'}
               </h3>
-              <button onClick={() => setShowModal(false)} className="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+              <button onClick={() => setShowModal(false)} aria-label="Tutup form" className="text-slate-400 hover:text-slate-600 text-xl font-bold"><X size={20} aria-hidden="true" /></button>
             </div>
-            
+
             <form onSubmit={handleSimpan} className="p-6 space-y-4">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Nomor Kamar</label>
@@ -177,7 +178,7 @@ const ManajemenKamar = () => {
               <div className="pt-4 flex gap-3">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowModal(false)} aria-label="Tutup form"
                   className="flex-1 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition-colors"
                 >
                   Batal

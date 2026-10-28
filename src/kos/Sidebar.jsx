@@ -1,70 +1,24 @@
-import React from "react";
-import { useKos } from "../context/kosContext";
-import { NavLink } from "react-router-dom";
+import { Building2, LayoutDashboard, DoorOpen, Users, Wallet, MessageSquare, LogOut, ArrowUpRight } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { useKos } from '../context/kosContext';
 
-const Sidebar = () => {
+const menus = [
+  ['/dashboard', 'Dashboard', LayoutDashboard],
+  ['/kamar', 'Manajemen Kamar', DoorOpen],
+  ['/penghuni', 'Data Penghuni', Users],
+  ['/keuangan', 'Keuangan', Wallet],
+  ['/keluhan', 'Keluhan', MessageSquare],
+];
+
+export default function Sidebar() {
   const { currentUser, logout } = useKos();
-
-  return (
-    <aside className="w-62.5 min-w-62.5 shrink-0 bg-slate-900 px-4 py-6 text-white flex flex-col justify-between h-screen sticky top-0">
-      <div>
-        <div className="mb-5 flex items-center gap-2 text-xl font-bold text-sky-400 md:mb-8">
-          🏠 KosManager
-        </div>
-
-        {/* Info Akun & Tombol Logout */}
-        <div className="mb-6 p-3 bg-slate-800 rounded-xl border border-slate-700">
-          <p className="text-xs text-slate-400 mb-1">
-            Halo,{" "}
-            <span className="font-bold text-white capitalize">
-              {currentUser?.username}
-            </span>
-          </p>
-          <div className="flex items-center justify-between mt-2">
-            <span className="text-xs font-bold uppercase px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">
-              Admin
-            </span>
-            <button
-              onClick={logout}
-              className="text-xs bg-rose-600 hover:bg-rose-700 text-white px-3 py-1 rounded transition-colors"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-
-        {/* Menu Navigasi */}
-        <nav aria-label="Navigasi utama">
-          <ul className="flex flex-wrap gap-2 md:flex-col p-4">
-            {[
-              ["/dashboard", "Dashboard"],
-              ["/kamar", "Manajemen Kamar"],
-              ["/penghuni", "Data Penghuni"],
-              ["/keuangan", "Keuangan"],
-              ["/keluhan", "Keluhan"],
-            ].map(([path, label]) => (
-              <li key={path}>
-                <NavLink to={path} className={linkClass}>
-                  {label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-
-      <div className="hidden md:block text-xs text-slate-500 pt-4 border-t border-slate-800">
-        &copy; 2026 SmartKos App
-      </div>
-    </aside>
-  );
-};
-
-const linkClass = ({ isActive }) =>
-  `block rounded-lg px-3 py-2.5 text-sm transition-colors ${
-    isActive
-      ? "bg-slate-800 font-semibold text-white"
-      : "text-slate-400 hover:bg-slate-800 hover:text-white"
-  }`;
-
-export default Sidebar;
+  return <aside className="sidebar">
+    <NavLink to="/dashboard" className="brand"><span className="brand-icon"><Building2 size={23} /></span><span>SmartKos<small>PROPERTY MANAGEMENT</small></span></NavLink>
+    <div className="nav-label">WORKSPACE</div>
+    <nav aria-label="Navigasi utama" className="sidebar-nav">
+      {menus.map(([path, label, Icon]) => <NavLink key={path} to={path} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}><Icon size={19} aria-hidden="true" /><span>{label}</span></NavLink>)}
+    </nav>
+    <div className="sidebar-tip"><span className="tip-icon"><Building2 size={20} /></span><strong>Kos terkelola, lebih tenang.</strong><p>Semua operasional kos dalam satu tempat.</p><NavLink to="/kamar">Kelola kamar <ArrowUpRight size={15} /></NavLink></div>
+    <div className="sidebar-account"><span className="avatar">{currentUser?.username?.slice(0, 1).toUpperCase()}</span><div><strong>{currentUser?.username}</strong><small>Administrator</small></div><button type="button" onClick={logout} aria-label="Keluar dari akun" title="Keluar dari akun"><LogOut size={18} /></button></div>
+  </aside>;
+}

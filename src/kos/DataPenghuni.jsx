@@ -1,3 +1,4 @@
+import { Plus, X, Trash2, LogOut } from "lucide-react";
 import React, { useState } from "react";
 import { useKos } from "../context/kosContext";
 
@@ -22,7 +23,7 @@ const DataPenghuni = () => {
   const filterNomor = String(formData.nomorHp).length;
 
   const handleBukaModal = () => {
-    setFormData({ nama: "", kontak: "", kamarId: "" });
+    setFormData({ nama: "", nomorHp: "", kamarId: "" });
     setShowModal(true);
   };
 
@@ -74,7 +75,7 @@ const DataPenghuni = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-5 rounded-2xl shadow-sm border border-slate-200">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-800">Data Penghuni</h2>
           <p className="text-sm text-slate-500">
@@ -85,7 +86,7 @@ const DataPenghuni = () => {
           onClick={handleBukaModal}
           className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
         >
-          + Tambah Penghuni
+          <Plus size={17} aria-hidden="true" /> Tambah Penghuni
         </button>
       </div>
 
@@ -133,7 +134,7 @@ const DataPenghuni = () => {
                           onClick={() => handleCheckout(p.id, p.nama)}
                           className="bg-red-50 hover:bg-red-100 text-red-600 px-3 py-1.5 rounded-md text-xs font-medium transition-colors border border-red-200"
                         >
-                          Checkout
+                          <LogOut size={14} aria-hidden="true" /> Checkout
                         </button>
                       ) : (
                         /* Tombol Hapus HANYA muncul jika penghuni Sudah Keluar */
@@ -141,7 +142,7 @@ const DataPenghuni = () => {
                           onClick={() => handleHapus(p.id, p.nama)}
                           className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-1.5 rounded-md text-xs font-medium transition-colors border border-slate-300"
                         >
-                          Hapus 
+                          <Trash2 size={14} aria-hidden="true" /> Hapus
                         </button>
                       )}
                     </td>
@@ -170,10 +171,10 @@ const DataPenghuni = () => {
                 Tambah Penghuni Baru
               </h3>
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => setShowModal(false)} aria-label="Tutup form"
                 className="text-slate-400 hover:text-slate-600 text-xl font-bold"
               >
-                &times;
+                <X size={20} aria-hidden="true" />
               </button>
             </div>
 
@@ -244,7 +245,7 @@ const DataPenghuni = () => {
               <div className="pt-4 flex gap-3">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowModal(false)} aria-label="Tutup form"
                   className="flex-1 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium transition-colors"
                 >
                   Batal
