@@ -56,9 +56,15 @@ const Keuangan = () => {
 
       {/* Kartu Ringkasan */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-emerald-50 border border-emerald-100 p-5 rounded-xl">
-          <p className="text-sm font-medium text-emerald-700 mb-1">Total Pemasukan</p>
+              <div className="bg-emerald-50 border border-emerald-100 p-5 rounded-xl">
+          <p className="text-sm font-medium text-emerald-700 mb-1">Saldo Bersih</p>
           <p className="text-2xl font-bold text-emerald-700">
+            Rp {saldoBersih.toLocaleString('id-ID')}
+          </p>
+        </div>
+        <div className="bg-blue-50 border border-blue-100 p-5 rounded-xl">
+          <p className="text-sm font-medium text-blue-700 mb-1">Total Pemasukan</p>
+          <p className="text-2xl font-bold text-blue-700">
             Rp {totalPemasukan.toLocaleString('id-ID')}
           </p>
         </div>
@@ -66,12 +72,6 @@ const Keuangan = () => {
           <p className="text-sm font-medium text-rose-700 mb-1">Total Pengeluaran</p>
           <p className="text-2xl font-bold text-rose-700">
             Rp {totalPengeluaran.toLocaleString('id-ID')}
-          </p>
-        </div>
-        <div className="bg-blue-50 border border-blue-100 p-5 rounded-xl">
-          <p className="text-sm font-medium text-blue-700 mb-1">Saldo Bersih</p>
-          <p className="text-2xl font-bold text-blue-700">
-            Rp {saldoBersih.toLocaleString('id-ID')}
           </p>
         </div>
       </div>
